@@ -4,6 +4,8 @@ import { ClarityModule } from '@clr/angular';
 import { ClarityIcons, userIcon, boltIcon } from '@cds/core/icon';
 import '@cds/core/icon/register.js';
 import { CommonModule } from '@angular/common';
+import { AlertComponent } from './alert/alert.component';
+import { AppLevelAlertComponent } from './app-level-alert/app-level-alert.component';
 
 const icons = [userIcon, boltIcon];
 
@@ -18,10 +20,16 @@ ClarityIcons.addIcons(...icons);
     RouterLink,
     RouterLinkActive,
     ClarityModule,
+    AlertComponent,
+    AppLevelAlertComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = 'ng-clarity-quickstart';
+
+  handleClose($event: PointerEvent) {
+    console.log(event);
+  }
 }

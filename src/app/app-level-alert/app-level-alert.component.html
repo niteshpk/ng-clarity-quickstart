@@ -1,0 +1,13 @@
+<clr-alert
+  [clrAlertAppLevel]="true"
+  [clrAlertClosable]="closable"
+  [clrAlertIcon]="icon"
+  [clrAlertType]="type"
+  [clrCloseButtonAriaLabel]="closeButtonLabel"
+  (clrAlertClosedChange)="handleClose($event)"
+>
+  <clr-alert-item>
+    <span class="alert-text">{{ message }}</span>
+    <ng-content></ng-content>
+  </clr-alert-item>
+</clr-alert>
