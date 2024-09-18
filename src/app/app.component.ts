@@ -1,33 +1,24 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { ClarityModule } from '@clr/angular';
-import {
-  ClarityIcons,
-  userIcon,
-  boltIcon,
-  sadFaceIcon,
-  bugIcon,
-  shieldIcon,
-  certificateIcon,
-} from '@cds/core/icon';
+import { ClarityIcons, userIcon, boltIcon } from '@cds/core/icon';
 import '@cds/core/icon/register.js';
 import { CommonModule } from '@angular/common';
 
-const icons = [
-  userIcon,
-  boltIcon,
-  sadFaceIcon,
-  bugIcon,
-  shieldIcon,
-  certificateIcon,
-];
+const icons = [userIcon, boltIcon];
 
 ClarityIcons.addIcons(...icons);
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ClarityModule, CommonModule],
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    RouterLink,
+    RouterLinkActive,
+    ClarityModule,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

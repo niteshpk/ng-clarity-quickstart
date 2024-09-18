@@ -12,29 +12,23 @@
       [clrVerticalNavCollapsible]="true"
       [clrVerticalNavCollapsed]="false"
     >
-      <a clrVerticalNavLink routerLink="./normal" routerLinkActive="active">
+      <a
+        clrVerticalNavLink
+        routerLink="/first-page"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+      >
         <cds-icon clrVerticalNavIcon shape="user"></cds-icon>
-        Normal
+        First Page
       </a>
-      <a clrVerticalNavLink routerLink="./electric" routerLinkActive="active">
+      <a
+        clrVerticalNavLink
+        routerLink="/second-page"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+      >
         <cds-icon clrVerticalNavIcon shape="bolt"></cds-icon>
-        Electric
-      </a>
-      <a clrVerticalNavLink routerLink="./poison" routerLinkActive="active">
-        <cds-icon clrVerticalNavIcon shape="sad-face"></cds-icon>
-        Poison
-      </a>
-      <a clrVerticalNavLink routerLink="./grass" routerLinkActive="active">
-        <cds-icon clrVerticalNavIcon shape="bug"></cds-icon>
-        Grass
-      </a>
-      <a clrVerticalNavLink routerLink="./fighting" routerLinkActive="active">
-        <cds-icon clrVerticalNavIcon shape="shield"></cds-icon>
-        Fighting
-      </a>
-      <a clrVerticalNavLink routerLink="./credit" routerLinkActive="active">
-        <cds-icon clrVerticalNavIcon shape="certificate"></cds-icon>
-        Credit
+        Second Page
       </a>
     </clr-vertical-nav>
     <div class="content-area">
