@@ -21,9 +21,9 @@ export class AppLevelAlertComponent {
 
   @Input() message: string = '';
 
-  @Output() onClose = new EventEmitter<PointerEvent>();
+  @Output() onClose = new EventEmitter<boolean>();
 
-  handleClose($event: PointerEvent) {
+  handleClose($event: boolean) {
     this.onClose.emit($event);
   }
 }

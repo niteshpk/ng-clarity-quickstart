@@ -29,7 +29,7 @@ ClarityIcons.addIcons(...icons);
 export class AppComponent {
   title = 'ng-clarity-quickstart';
 
-  handleClose($event: PointerEvent) {
-    console.log(event);
+  handleClose($event: boolean) {
+    console.log($event);
   }
 }
