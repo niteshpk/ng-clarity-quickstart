@@ -1,0 +1,29 @@
+<div class="login-wrapper">
+  <form class="login">
+    <div class="login-header">
+      <div class="logo"></div>
+      <div class="actions">
+        <clr-dropdown>
+          <button class="btn btn-link btn-sm" clrDropdownTrigger>
+            Language
+            <cds-icon shape="angle" direction="down"></cds-icon>
+          </button>
+          <clr-dropdown-menu>
+            <div aria-label="Language 1" clrDropdownItem>Language 1</div>
+            <div aria-label="Language 2" clrDropdownItem>Language 2</div>
+            <div aria-label="Language 3" clrDropdownItem>Language 3</div>
+          </clr-dropdown-menu>
+        </clr-dropdown>
+      </div>
+    </div>
+    <div class="login-body">
+      <router-outlet></router-outlet>
+    </div>
+    <div class="login-footer">
+      <span class="copyright">2023 VMware, Inc.</span>
+      <a href="javascript://">Terms</a>
+      <a href="javascript://">Privacy</a>
+      <a href="javascript://">California Privacy Rights</a>
+    </div>
+  </form>
+</div>
