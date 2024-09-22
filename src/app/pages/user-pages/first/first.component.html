@@ -1,0 +1,16 @@
+<p>first works!</p>
+
+<button class="btn btn-primary" (click)="openModal()">Large Modal</button>
+
+<clr-modal #modal [(clrModalOpen)]="opened" [clrModalSize]="'lg'">
+  <div class="modal-title">Large modal</div>
+  <div class="modal-body">I am a large modal.</div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline" (click)="opened = false">
+      Cancel
+    </button>
+    <button type="button" class="btn btn-primary" (click)="opened = false">
+      Ok
+    </button>
+  </div>
+</clr-modal>

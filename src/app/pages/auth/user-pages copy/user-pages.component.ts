@@ -6,8 +6,8 @@ import {
   RouterOutlet,
 } from '@angular/router';
 import { ClrVerticalNavModule } from '@clr/angular';
-import { AlertComponent } from '../../../alert/alert.component';
-import { AppLevelAlertComponent } from '../../../app-level-alert/app-level-alert.component';
+import { AlertComponent } from '../../../components/alert/alert.component';
+import { AppLevelAlertComponent } from '../../../components/app-level-alert/app-level-alert.component';
 import { NgIf } from '@angular/common';
 
 @Component({
