@@ -1,0 +1,79 @@
+<app-app-level-alert
+  [type]="'danger'"
+  [message]="'This is an app level alert.'"
+  [icon]="'error-standard'"
+  [closable]="true"
+  [closeButtonLabel]="'Close'"
+  (onClose)="handleClose($event)"
+>
+  <div class="alert-actions">
+    <button class="btn alert-action">Fix</button>
+    <button class="btn alert-action">Ignore</button>
+  </div>
+</app-app-level-alert>
+
+<header class="header header-6">
+  <div class="branding">
+    <a routerLink="/" routerLinkActive="active">
+      <cds-icon shape="bolt"></cds-icon>
+      <span class="title">CodeBlaze</span>
+    </a>
+  </div>
+  <div class="settings">
+    <a class="nav-link nav-icon" (click)="logout()">
+      <cds-icon shape="logout" *ngIf="!isLoggingOut"></cds-icon>
+      <span class="spinner spinner-inline" *ngIf="isLoggingOut"> </span>
+    </a>
+  </div>
+</header>
+
+<div class="content-container">
+  <clr-vertical-nav
+    [clrVerticalNavCollapsible]="true"
+    [clrVerticalNavCollapsed]="false"
+  >
+    <a
+      clrVerticalNavLink
+      routerLink="/user/first-page"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+    >
+      <cds-icon clrVerticalNavIcon shape="user"></cds-icon>
+      First Page
+    </a>
+    <a
+      clrVerticalNavLink
+      routerLink="/user/second-page"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+    >
+      <cds-icon clrVerticalNavIcon shape="bolt"></cds-icon>
+      Second Page
+    </a>
+  </clr-vertical-nav>
+
+  <div class="content-area">
+    <app-alert
+      [type]="'success'"
+      [message]="'This alert indicates success.'"
+      (onClose)="handleClose($event)"
+    ></app-alert>
+    <app-alert
+      [type]="'danger'"
+      [message]="'This alert indicates danger.'"
+      (onClose)="handleClose($event)"
+    ></app-alert>
+    <app-alert
+      [type]="'warning'"
+      [message]="'This alert indicates warning.'"
+      (onClose)="handleClose($event)"
+    ></app-alert>
+    <app-alert
+      [type]="'info'"
+      [message]="'This alert indicates info.'"
+      (onClose)="handleClose($event)"
+    ></app-alert>
+
+    <router-outlet></router-outlet>
+  </div>
+</div>

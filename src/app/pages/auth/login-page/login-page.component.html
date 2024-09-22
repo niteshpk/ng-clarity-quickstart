@@ -1,0 +1,60 @@
+<section class="title">
+  <div class="welcome">Welcome to</div>
+  CodeBlaze
+  <div class="hint">Login and start your journey!</div>
+</section>
+<div class="login-group">
+  <!-- <clr-select-container>
+          <label>User Role</label>
+          <select clrSelect name="type" [(ngModel)]="form.type">
+            <option value="local">Local Users</option>
+            <option value="admin">Administrator</option>
+          </select>
+        </clr-select-container> -->
+  <clr-input-container>
+    <label class="clr-sr-only">E-mail</label>
+    <input
+      type="text"
+      autocomplete="username"
+      name="username"
+      clrInput
+      placeholder="Enter e-mail"
+      [(ngModel)]="form.username"
+    />
+  </clr-input-container>
+  <clr-password-container>
+    <label class="clr-sr-only">Password</label>
+    <input
+      type="password"
+      autocomplete="current-password"
+      name="password"
+      clrPassword
+      placeholder="Enter password"
+      [(ngModel)]="form.password"
+    />
+  </clr-password-container>
+  <clr-checkbox-wrapper>
+    <label>Remember me</label>
+    <input
+      type="checkbox"
+      name="rememberMe"
+      clrCheckbox
+      [(ngModel)]="form.rememberMe"
+    />
+  </clr-checkbox-wrapper>
+  <div class="error active" *ngIf="isError">Invalid user name or password</div>
+
+  <button
+    type="submit"
+    class="btn btn-primary"
+    [routerLink]="'/user/first-page'"
+  >
+    Log in
+  </button>
+  <div class="links">
+    <a [routerLink]="'/auth/signup'" class="signup"> Create new account </a>
+    <a [routerLink]="'/auth/forget-password'" class="signup">
+      Forget Password
+    </a>
+  </div>
+</div>
