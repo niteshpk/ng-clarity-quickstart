@@ -1,13 +1,13 @@
 import { Routes } from '@angular/router';
-import { FirstComponent } from './first/first.component';
-import { SecondComponent } from './second/second.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { FirstComponent } from './pages/user-pages/first/first.component';
+import { SecondComponent } from './pages/user-pages/second/second.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { LoginPageComponent } from './pages/auth/login-page/login-page.component';
 import { SignupPageComponent } from './pages/auth/signup-page/signup-page.component';
-import { UserPagesComponent } from './pages/auth/user-pages/user-pages.component';
 import { ForgetPasswordPageComponent } from './pages/auth/forget-password-page/forget-password-page.component';
 import { ResetPasswordPageComponent } from './pages/auth/reset-password-page/reset-password-page.component';
 import { AuthPagesComponent } from './pages/auth/auth-pages/auth-pages.component';
+import { UserPagesComponent } from './pages/user-pages/user-pages.component';
 
 export const routes: Routes = [
   {
