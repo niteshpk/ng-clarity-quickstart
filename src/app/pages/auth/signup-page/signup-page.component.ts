@@ -8,12 +8,11 @@ import { ClrDropdownModule, ClrFormsModule } from '@clr/angular';
   selector: 'app-signup-page',
   standalone: true,
   imports: [ClrFormsModule, ClrDropdownModule, FormsModule, RouterLink, NgIf],
-  templateUrl: './Signup-page.component.html',
-  styleUrl: './Signup-page.component.scss',
+  templateUrl: './signup-page.component.html',
+  styleUrl: './signup-page.component.scss',
 })
 export class SignupPageComponent {
   form = {
-    // type: 'local',
     username: '',
     password: '',
     confirmPassword: '',
