@@ -10,6 +10,4 @@ import { CommonModule } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  title = 'ng-clarity-quickstart';
-}
+export class AppComponent {}
