@@ -14,14 +14,11 @@ interface PostViewModel extends Post {
   selector: 'app-second',
   standalone: true,
   imports: [NgIf, ClrDataModule, ClrConditionalModule, AlertComponent],
-  templateUrl: './second.component.html',
-  styleUrl: './second.component.scss',
+  templateUrl: './second-page.component.html',
+  styleUrl: './second-page.component.scss',
 })
-export class SecondComponent {
-  // posts: Post[] = [];
-  // users: User[] = [];
-
-  viewPosts: PostViewModel[] = [];
+export class SecondPageComponent {
+  articles: PostViewModel[] = [];
 
   constructor(
     private postervice: PostService,
@@ -30,11 +27,7 @@ export class SecondComponent {
 
   ngOnInit() {
     forkJoin([this.getUsers(), this.getPosts()]).subscribe(([users, posts]) => {
-      // console.log('users ', users);
-      // console.log('posts ', posts);
-      // this.users = users;
-      // this.posts = posts;
-      this.viewPosts = posts.map((post) => {
+      this.articles = posts.map((post) => {
         const user = users.find((u) => u.id === post.id);
 
         return { ...post, author: user?.name ?? 'NA' };

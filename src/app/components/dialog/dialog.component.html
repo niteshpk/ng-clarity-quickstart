@@ -1,0 +1,20 @@
+<ng-container *ngIf="options$ | async as options">
+  <clr-modal [clrModalOpen]="!!options.open" [clrModalClosable]="false">
+    <h3 class="modal-title">
+      {{ options.title }}
+    </h3>
+    <div class="modal-body" [innerHTML]="options.content"></div>
+    <div class="modal-footer">
+      <button *ngIf="options.cancelText" class="btn" (click)="close(false)">
+        {{ options.cancelText }}
+      </button>
+      <button
+        class="btn"
+        [ngClass]="getAcceptClass(options.acceptType)"
+        (click)="close(true)"
+      >
+        {{ options.acceptText }}
+      </button>
+    </div>
+  </clr-modal>
+</ng-container>

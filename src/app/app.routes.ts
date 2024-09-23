@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { FirstComponent } from './pages/user-pages/first/first.component';
-import { SecondComponent } from './pages/user-pages/second/second.component';
+import { FirstPageComponent } from './pages/user-pages/first-page/first-page.component';
+import { SecondPageComponent } from './pages/user-pages/second-page/second-page.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { LoginPageComponent } from './pages/auth/login-page/login-page.component';
 import { SignupPageComponent } from './pages/auth/signup-page/signup-page.component';
@@ -38,11 +38,11 @@ export const routes: Routes = [
     children: [
       {
         path: 'first-page',
-        component: FirstComponent,
+        component: FirstPageComponent,
       },
       {
         path: 'second-page',
-        component: SecondComponent,
+        component: SecondPageComponent,
       },
     ],
   },

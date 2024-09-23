@@ -9,6 +9,7 @@ import { ClrModalModule, ClrVerticalNavModule } from '@clr/angular';
 import { NgIf } from '@angular/common';
 import { AlertComponent } from '../../components/alert/alert.component';
 import { AppLevelAlertComponent } from '../../components/app-level-alert/app-level-alert.component';
+import { DialogComponent } from '../../components/dialog/dialog.component';
 
 @Component({
   selector: 'app-user-pages',
@@ -23,6 +24,7 @@ import { AppLevelAlertComponent } from '../../components/app-level-alert/app-lev
     ClrModalModule,
     AlertComponent,
     AppLevelAlertComponent,
+    DialogComponent,
   ],
   templateUrl: './user-pages.component.html',
   styleUrl: './user-pages.component.scss',
@@ -41,6 +43,6 @@ export class UserPagesComponent {
     setTimeout(() => {
       this.isLoggingOut = false;
       this.router.navigateByUrl('/auth/login');
-    }, 3000);
+    }, 1000);
   }
 }

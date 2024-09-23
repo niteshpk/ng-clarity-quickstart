@@ -1,4 +1,5 @@
 export const environment = {
   production: false,
-  apiLogging: true,
+  apiLogging: false,
+  apiErrorLogging: false,
 };
