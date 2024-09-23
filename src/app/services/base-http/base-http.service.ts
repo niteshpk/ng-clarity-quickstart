@@ -102,7 +102,7 @@ export class BaseHttpService {
     headers: HttpHeaders,
     error: HttpErrorResponse
   ) {
-    if (environment.apiLogging) {
+    if (environment.apiErrorLogging) {
       console.error(`Error in ${method} request to ${url}`);
       console.error(`Request Body: ${JSON.stringify(body)}`);
       // console.error(`Headers: ${JSON.stringify(headers)}`);
