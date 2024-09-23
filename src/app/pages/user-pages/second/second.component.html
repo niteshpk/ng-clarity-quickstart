@@ -1,1 +1,47 @@
-<p>second works!</p>
+<app-alert
+  [type]="'success'"
+  [message]="'This alert indicates success.'"
+  (onClose)="handleClose($event)"
+></app-alert>
+
+<clr-datagrid>
+  <clr-dg-column> ID</clr-dg-column>
+  <clr-dg-column>Author</clr-dg-column>
+  <clr-dg-column>Title</clr-dg-column>
+  <clr-dg-column>Body</clr-dg-column>
+
+  <clr-dg-placeholder>We couldn't find any posts!</clr-dg-placeholder>
+
+  <clr-dg-row *clrDgItems="let post of viewPosts">
+    <clr-dg-cell>{{ post.id }}</clr-dg-cell>
+    <clr-dg-cell>{{ post.author }}</clr-dg-cell>
+    <clr-dg-cell
+      role="tooltip"
+      aria-haspopup="true"
+      class="tooltip tooltip-right"
+      >{{
+        post.title.length > 30
+          ? post.title.substring(0, 30) + "..."
+          : post.title
+      }}
+      <span class="tooltip-content">{{ post.title }}</span>
+    </clr-dg-cell>
+    <clr-dg-cell>{{
+      post.body.length > 35 ? post.body.substring(0, 35) + "..." : post.body
+    }}</clr-dg-cell>
+
+    <clr-dg-row-detail *clrIfExpanded>
+      <p>{{ post.body }}</p>
+    </clr-dg-row-detail>
+  </clr-dg-row>
+
+  <clr-dg-footer>
+    <clr-dg-pagination #pagination [clrDgPageSize]="15">
+      <clr-dg-page-size [clrPageSizeOptions]="[15, 30, 50, 100]">
+        Posts per page
+      </clr-dg-page-size>
+      {{ pagination.firstItem + 1 }} - {{ pagination.lastItem + 1 }} of
+      {{ pagination.totalItems }} users
+    </clr-dg-pagination>
+  </clr-dg-footer>
+</clr-datagrid>
