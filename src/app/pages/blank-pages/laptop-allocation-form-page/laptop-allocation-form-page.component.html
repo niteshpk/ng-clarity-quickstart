@@ -1,0 +1,169 @@
+<form [formGroup]="assetForm" (ngSubmit)="onSubmit()" #pdfContent>
+  <!-- Issued To -->
+  <div class="clr-form-container">
+    <div class="clr-form">
+      <!-- Patch form data -->
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        (click)="patchFormData()"
+      >
+        Patch Form Data
+      </button>
+
+      <clr-input-container>
+        <label for="candidateName">Issued to</label>
+        <input
+          clrInput
+          id="candidateName"
+          formControlName="candidateName"
+          placeholder="Enter name"
+        />
+      </clr-input-container>
+
+      <!-- Date of Issue -->
+      <clr-input-container>
+        <label for="dateOfIssue">Date of Issue</label>
+        <input
+          clrInput
+          id="dateOfIssue"
+          type="date"
+          formControlName="dateOfIssue"
+        />
+      </clr-input-container>
+
+      <!-- Company -->
+      <clr-input-container>
+        <label for="companyName">Company</label>
+        <input
+          clrInput
+          id="companyName"
+          formControlName="companyName"
+          placeholder="Enter company"
+        />
+      </clr-input-container>
+
+      <!-- Asset Details Section -->
+      <h3>Asset Information</h3>
+
+      <clr-input-container>
+        <label for="assetName">Asset Name</label>
+        <input
+          clrInput
+          id="assetName"
+          formControlName="assetName"
+          placeholder="Enter asset name"
+        />
+      </clr-input-container>
+
+      <clr-input-container>
+        <label for="make">Make</label>
+        <input
+          clrInput
+          id="make"
+          formControlName="make"
+          placeholder="Enter asset make"
+        />
+      </clr-input-container>
+
+      <clr-input-container>
+        <label for="model">Model</label>
+        <input
+          clrInput
+          id="model"
+          formControlName="model"
+          placeholder="Enter asset model"
+        />
+      </clr-input-container>
+
+      <clr-input-container>
+        <label for="serialNumber">Serial Number</label>
+        <input
+          clrInput
+          id="serialNumber"
+          formControlName="serialNumber"
+          placeholder="Enter serial number"
+        />
+      </clr-input-container>
+
+      <!-- Other Assets Section -->
+      <h3>Other Assets (if any)</h3>
+
+      <div formArrayName="otherAssets">
+        <div *ngFor="let otherAsset of otherAssets.controls; let i = index">
+          <div [formGroupName]="i">
+            <clr-input-container>
+              <label for="otherAssetName">Other Asset Name</label>
+              <input
+                clrInput
+                id="otherAssetName"
+                formControlName="assetName"
+                placeholder="Enter other asset name"
+              />
+            </clr-input-container>
+
+            <clr-input-container>
+              <label for="otherAssetMake">Make</label>
+              <input
+                clrInput
+                id="otherAssetMake"
+                formControlName="make"
+                placeholder="Enter other asset make"
+              />
+            </clr-input-container>
+
+            <clr-input-container>
+              <label for="otherAssetModel">Model</label>
+              <input
+                clrInput
+                id="otherAssetModel"
+                formControlName="model"
+                placeholder="Enter other asset model"
+              />
+            </clr-input-container>
+
+            <clr-input-container>
+              <label for="otherAssetSerialNumber">Serial Number</label>
+              <input
+                clrInput
+                id="otherAssetSerialNumber"
+                formControlName="serialNumber"
+                placeholder="Enter other asset serial number"
+              />
+            </clr-input-container>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add more assets -->
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        (click)="addOtherAsset()"
+      >
+        Add Another Asset
+      </button>
+
+      <!-- Signature Section -->
+      <h3>Signature</h3>
+
+      <clr-input-container>
+        <label for="employeeSignature">Employee Signature</label>
+        <input clrInput id="employeeSignature" placeholder="Signature" />
+      </clr-input-container>
+
+      <!-- Submit Button 
+        [disabled]="assetForm.invalid" -->
+      <button type="submit" class="btn btn-primary">Submit</button>
+
+      <!-- PDF -->
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        (click)="generatePDF()"
+      >
+        Generate PDF
+      </button>
+    </div>
+  </div>
+</form>

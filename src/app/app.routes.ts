@@ -8,6 +8,7 @@ import { ForgetPasswordPageComponent } from './pages/auth/forget-password-page/f
 import { ResetPasswordPageComponent } from './pages/auth/reset-password-page/reset-password-page.component';
 import { AuthPagesComponent } from './pages/auth/auth-pages/auth-pages.component';
 import { UserPagesComponent } from './pages/user-pages/user-pages.component';
+import { LaptopAllocationFormPageComponent } from './pages/blank-pages/laptop-allocation-form-page/laptop-allocation-form-page.component';
 
 export const routes: Routes = [
   {
@@ -46,6 +47,11 @@ export const routes: Routes = [
       },
     ],
   },
-  { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
+
+  {
+    path: 'laptop-allocation-form',
+    component: LaptopAllocationFormPageComponent,
+  },
+  { path: '', redirectTo: '/laptop-allocation-form', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];
