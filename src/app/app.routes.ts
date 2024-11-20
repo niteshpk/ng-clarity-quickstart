@@ -8,6 +8,7 @@ import { ForgetPasswordPageComponent } from './pages/auth/forget-password-page/f
 import { ResetPasswordPageComponent } from './pages/auth/reset-password-page/reset-password-page.component';
 import { AuthPagesComponent } from './pages/auth/auth-pages/auth-pages.component';
 import { UserPagesComponent } from './pages/user-pages/user-pages.component';
+import { BlankPageComponent } from './pages/user-pages/blank-page/blank-page.component';
 
 export const routes: Routes = [
   {
@@ -43,6 +44,10 @@ export const routes: Routes = [
       {
         path: 'second-page',
         component: SecondPageComponent,
+      },
+      {
+        path: 'blank-page',
+        component: BlankPageComponent,
       },
     ],
   },
