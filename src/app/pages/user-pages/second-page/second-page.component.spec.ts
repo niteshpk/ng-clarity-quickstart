@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SecondPageComponent } from './second-page.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { PostService } from '../../../services/post/post.service';
 
 describe('SecondPageComponent', () => {
   let component: SecondPageComponent;
@@ -8,7 +10,8 @@ describe('SecondPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SecondPageComponent],
+      imports: [HttpClientTestingModule],
+      providers: [PostService],
     }).compileComponents();
 
     fixture = TestBed.createComponent(SecondPageComponent);
