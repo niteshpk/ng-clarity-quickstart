@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserPagesComponent } from './user-pages.component';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 
 describe('UserPagesComponent', () => {
   let component: UserPagesComponent;
@@ -8,9 +10,16 @@ describe('UserPagesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UserPagesComponent]
-    })
-    .compileComponents();
+      imports: [UserPagesComponent],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            params: of({}),
+          },
+        },
+      ],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(UserPagesComponent);
     component = fixture.componentInstance;
