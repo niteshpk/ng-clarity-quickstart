@@ -1,17 +1,5 @@
 <app-dialog></app-dialog>
-<app-app-level-alert
-  [type]="'danger'"
-  [message]="'This is an app level alert.'"
-  [icon]="'error-standard'"
-  [closable]="true"
-  [closeButtonLabel]="'Close'"
-  (onClose)="handleClose($event)"
->
-  <div class="alert-actions">
-    <button class="btn alert-action">Fix</button>
-    <button class="btn alert-action">Ignore</button>
-  </div>
-</app-app-level-alert>
+<app-level-alert></app-level-alert>
 
 <app-header></app-header>
 

@@ -9,10 +9,26 @@
   Click on the buttons to see different types of confirmation dialgs
 </p>
 <button class="btn btn-primary" (click)="onConfirm()">Confirm</button>
-<button class="btn btn-primary" (click)="onCustomConfirm()">
-  Custom Confirm
+
+<h2>Demo of App Level Alert Service</h2>
+<p class="p1">
+  Click on the buttons to see different types of app level alerts
+</p>
+<button
+  class="btn btn-primary"
+  (click)="showAppLevelAlert('info', 'info', 'This is an info alert.')"
+>
+  App Level Info Alert
 </button>
-<button class="btn btn-info" (click)="onInfo()">Info</button>
-<button class="btn btn-success" (click)="onSuccess()">Success</button>
-<button class="btn btn-warning" (click)="onWarning()">Warning</button>
-<button class="btn btn-danger" (click)="onError()">Error</button>
+<button
+  class="btn btn-primary"
+  (click)="showAppLevelAlert('success', 'success', 'This is an success alert.')"
+>
+  App Level Success Alert
+</button>
+<button
+  class="btn btn-primary"
+  (click)="showAppLevelAlert('warning', 'warning', 'This is an warning alert.')"
+>
+  App Level Warning Alert
+</button>

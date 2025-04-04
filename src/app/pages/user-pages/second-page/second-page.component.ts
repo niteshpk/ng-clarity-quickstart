@@ -1,4 +1,3 @@
-import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { ClrConditionalModule, ClrDataModule } from '@clr/angular';
 import { forkJoin } from 'rxjs';
@@ -12,7 +11,7 @@ interface PostViewModel extends Post {
 @Component({
   selector: 'app-second',
   standalone: true,
-  imports: [NgIf, ClrDataModule, ClrConditionalModule],
+  imports: [ClrDataModule, ClrConditionalModule],
   templateUrl: './second-page.component.html',
   styleUrl: './second-page.component.scss',
 })
