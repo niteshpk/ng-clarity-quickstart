@@ -1,8 +1,13 @@
+import {
+  AlertType,
+  StatusType,
+} from './../../../services/app-level-alert/app-level-alert.types';
 import { CommonModule } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
 import { ClrModal, ClrModalModule } from '@clr/angular';
 import { AlertComponent } from '../../../components/alert/alert.component';
 import { DialogService } from '../../../services/dialog/dialog.service';
+import { AppLevelAlertService } from '../../../services/app-level-alert/app-level-alert.service';
 
 @Component({
   selector: 'app-first',
@@ -16,7 +21,10 @@ export class FirstPageComponent {
 
   opened = false;
 
-  constructor(private dialog: DialogService) {}
+  constructor(
+    private dialog: DialogService,
+    private appAlertService: AppLevelAlertService
+  ) {}
 
   onConfirm() {
     this.dialog
@@ -27,45 +35,15 @@ export class FirstPageComponent {
       .subscribe((result) => console.log('Confirm:', result));
   }
 
-  onCustomConfirm() {
-    this.dialog.confirm({
-      title: 'Delete item',
-      content:
-        'Are you sure you want to delete this <b>item</b>? The operation cannot be reverted',
-      acceptText: 'Delete',
-      acceptType: 'warning',
-    });
-  }
-
-  onInfo() {
-    this.dialog.info({
-      title: 'Info',
-      content: 'Info content',
-    });
-  }
-
-  onSuccess() {
-    this.dialog.success({
-      title: 'Success',
-      content: 'Success content',
-    });
-  }
-
-  onWarning() {
-    this.dialog.warning({
-      title: 'Warning',
-      content: 'Warning content',
-    });
-  }
-
-  onError() {
-    this.dialog.error({
-      title: 'Error',
-      content: 'Error content',
-    });
-  }
-
   handleClose($event: boolean) {
     console.log($event);
+  }
+
+  showAppLevelAlert(type: StatusType, alertType: AlertType, message: string) {
+    this.appAlertService.show({
+      message: message,
+      type: type,
+      alertType: alertType,
+    });
   }
 }

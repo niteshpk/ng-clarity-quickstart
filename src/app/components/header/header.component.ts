@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { ClrIconModule } from '@clr/angular';
+import { AppLevelAlertService } from '../../services/app-level-alert/app-level-alert.service';
 
 @Component({
   selector: 'app-header',
@@ -13,10 +14,18 @@ import { ClrIconModule } from '@clr/angular';
 export class HeaderComponent {
   isLoggingOut = false;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private appAlertService: AppLevelAlertService
+  ) {}
 
   logout() {
     this.isLoggingOut = true;
+    this.appAlertService.show({
+      message: 'Logging out...',
+      type: 'info',
+      alertType: 'info',
+    });
     setTimeout(() => {
       this.isLoggingOut = false;
       this.router.navigateByUrl('/auth/login');

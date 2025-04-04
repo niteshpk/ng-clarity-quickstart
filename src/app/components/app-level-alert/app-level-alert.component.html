@@ -1,13 +1,18 @@
-<clr-alert
-  [clrAlertAppLevel]="true"
-  [clrAlertClosable]="closable"
-  [clrAlertIcon]="icon"
-  [clrAlertType]="type"
-  [clrCloseButtonAriaLabel]="closeButtonLabel"
-  (clrAlertClosedChange)="handleClose($event)"
->
-  <clr-alert-item>
-    <span class="alert-text">{{ message }}</span>
-    <ng-content></ng-content>
-  </clr-alert-item>
-</clr-alert>
+<ng-container *ngIf="options$ | async as state">
+  <ng-container *ngFor="let alert of state.alerts">
+    <clr-alert
+      *ngIf="alert.open"
+      [clrAlertAppLevel]="true"
+      [clrAlertClosable]="alert.closable ?? true"
+      [clrAlertIcon]="alert.icon ?? 'info-standard'"
+      [clrAlertType]="alert.type ?? 'neutral'"
+      [clrCloseButtonAriaLabel]="alert.closeButtonLabel ?? 'Close'"
+      (clrAlertClosedChange)="handleClose(alert.id!)"
+    >
+      <clr-alert-item>
+        <span class="alert-text">{{ alert.message }}</span>
+        <ng-content></ng-content>
+      </clr-alert-item>
+    </clr-alert>
+  </ng-container>
+</ng-container>

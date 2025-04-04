@@ -1,29 +1,26 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { infoStandardIcon } from '@cds/core/icon';
-import { StatusTypes } from '@cds/core/internal';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AppLevelAlertService } from '../../services/app-level-alert/app-level-alert.service';
+import { AlertState } from '../../services/app-level-alert/app-level-alert.types';
 import { ClarityModule } from '@clr/angular';
+import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-app-level-alert',
+  selector: 'app-level-alert',
   standalone: true,
-  imports: [ClarityModule],
+  imports: [ClarityModule, AsyncPipe, NgFor, NgIf],
   templateUrl: './app-level-alert.component.html',
   styleUrl: './app-level-alert.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppLevelAlertComponent {
-  @Input() type: StatusTypes = 'neutral';
+  options$: Observable<AlertState>;
 
-  @Input() closable = true;
+  constructor(private alertService: AppLevelAlertService) {
+    this.options$ = this.alertService.options$;
+  }
 
-  @Input() icon = 'info-standard';
-
-  @Input() closeButtonLabel = 'Close';
-
-  @Input() message: string = '';
-
-  @Output() onClose = new EventEmitter<boolean>();
-
-  handleClose($event: boolean) {
-    this.onClose.emit($event);
+  handleClose(id: string) {
+    this.alertService.hide(id);
   }
 }
