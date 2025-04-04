@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { AuthPagesComponent } from './pages/auth/auth-pages/auth-pages.component';
+import { ForgetPasswordPageComponent } from './pages/auth/forget-password-page/forget-password-page.component';
+import { LoginPageComponent } from './pages/auth/login-page/login-page.component';
+import { ResetPasswordPageComponent } from './pages/auth/reset-password-page/reset-password-page.component';
+import { SignupPageComponent } from './pages/auth/signup-page/signup-page.component';
 import { FirstPageComponent } from './pages/user-pages/first-page/first-page.component';
 import { SecondPageComponent } from './pages/user-pages/second-page/second-page.component';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { LoginPageComponent } from './pages/auth/login-page/login-page.component';
-import { SignupPageComponent } from './pages/auth/signup-page/signup-page.component';
-import { ForgetPasswordPageComponent } from './pages/auth/forget-password-page/forget-password-page.component';
-import { ResetPasswordPageComponent } from './pages/auth/reset-password-page/reset-password-page.component';
-import { AuthPagesComponent } from './pages/auth/auth-pages/auth-pages.component';
 import { UserPagesComponent } from './pages/user-pages/user-pages.component';
 
 export const routes: Routes = [
@@ -14,6 +14,7 @@ export const routes: Routes = [
     path: 'auth',
     component: AuthPagesComponent,
     children: [
+      { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
       {
         path: 'login',
         component: LoginPageComponent,

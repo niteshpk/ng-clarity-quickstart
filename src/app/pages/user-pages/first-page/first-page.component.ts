@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
 import { ClrModal, ClrModalModule } from '@clr/angular';
+import { AlertComponent } from '../../../components/alert/alert.component';
 import { DialogService } from '../../../services/dialog/dialog.service';
 
 @Component({
   selector: 'app-first',
   standalone: true,
-  imports: [CommonModule, ClrModalModule],
+  imports: [CommonModule, ClrModalModule, AlertComponent],
   templateUrl: './first-page.component.html',
   styleUrl: './first-page.component.scss',
 })
@@ -62,5 +63,9 @@ export class FirstPageComponent {
       title: 'Error',
       content: 'Error content',
     });
+  }
+
+  handleClose($event: boolean) {
+    console.log($event);
   }
 }
