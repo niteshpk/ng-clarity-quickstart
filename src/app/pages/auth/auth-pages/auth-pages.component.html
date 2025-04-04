@@ -1,10 +1,15 @@
 <div class="login-wrapper">
-  <form class="login">
+  <form class="login" (onSubmit)="onSubmit($event)">
     <div class="login-header">
       <div class="logo"></div>
       <div class="actions">
         <clr-dropdown>
-          <button class="btn btn-link btn-sm" clrDropdownTrigger>
+          <button
+            type="button"
+            class="btn btn-link btn-sm"
+            clrDropdownTrigger
+            (click)="$event.stopPropagation()"
+          >
             Language
             <cds-icon shape="angle" direction="down"></cds-icon>
           </button>

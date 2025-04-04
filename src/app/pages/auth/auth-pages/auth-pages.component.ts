@@ -1,3 +1,4 @@
+import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import {
   Router,
@@ -5,7 +6,6 @@ import {
   RouterLinkActive,
   RouterOutlet,
 } from '@angular/router';
-import { NgIf } from '@angular/common';
 import { ClrDropdownModule } from '@clr/angular';
 
 @Component({
@@ -37,5 +37,10 @@ export class AuthPagesComponent {
       this.isLoggingOut = false;
       this.router.navigateByUrl('/auth/login');
     }, 3000);
+  }
+
+  onSubmit($event: Event) {
+    $event.preventDefault();
+    console.log($event);
   }
 }

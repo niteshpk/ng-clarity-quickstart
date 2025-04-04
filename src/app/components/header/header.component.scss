@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: var(--clr-header-bg-color, #fafafa);
+  border-bottom: 1px solid var(--clr-header-border-color, #ccc);
+
+  .branding {
+    display: flex;
+    align-items: center;
+
+    a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: inherit;
+
+      .title {
+        margin-left: 0.5rem;
+      }
+    }
+  }
+
+  .settings {
+    .nav-link {
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+  }
+}

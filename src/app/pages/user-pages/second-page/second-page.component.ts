@@ -1,10 +1,9 @@
-import { Component } from '@angular/core';
-import { PostService, Post } from '../../../services/post/post.service';
-import { ClrConditionalModule, ClrDataModule } from '@clr/angular';
 import { NgIf } from '@angular/common';
+import { Component } from '@angular/core';
+import { ClrConditionalModule, ClrDataModule } from '@clr/angular';
 import { forkJoin } from 'rxjs';
-import { User, UserService } from '../../../services/user/user.service';
-import { AlertComponent } from '../../../components/alert/alert.component';
+import { Post, PostService } from '../../../services/post/post.service';
+import { UserService } from '../../../services/user/user.service';
 
 interface PostViewModel extends Post {
   author: string;
@@ -13,7 +12,7 @@ interface PostViewModel extends Post {
 @Component({
   selector: 'app-second',
   standalone: true,
-  imports: [NgIf, ClrDataModule, ClrConditionalModule, AlertComponent],
+  imports: [NgIf, ClrDataModule, ClrConditionalModule],
   templateUrl: './second-page.component.html',
   styleUrl: './second-page.component.scss',
 })
@@ -27,10 +26,11 @@ export class SecondPageComponent {
 
   ngOnInit() {
     forkJoin([this.getUsers(), this.getPosts()]).subscribe(([users, posts]) => {
-      this.articles = posts.map((post) => {
-        const user = users.find((u) => u.id === post.id);
+      const userMap = new Map(users.map((user) => [user.id, user.name]));
 
-        return { ...post, author: user?.name ?? 'NA' };
+      this.articles = posts.map((post) => {
+        const author = userMap.get(post.id) ?? 'NA';
+        return { ...post, author };
       });
     });
   }
@@ -41,9 +41,5 @@ export class SecondPageComponent {
 
   getUsers() {
     return this.userService.getUsers();
-  }
-
-  handleClose($event: boolean) {
-    console.log($event);
   }
 }

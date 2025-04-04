@@ -1,4 +1,8 @@
-<p>first works!</p>
+<app-alert
+  [type]="'success'"
+  [message]="'This alert indicates success.'"
+  (onClose)="handleClose($event)"
+></app-alert>
 
 <h2>Demo of Dialog Service</h2>
 <p class="p1">
